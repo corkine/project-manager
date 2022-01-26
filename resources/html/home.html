@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>项目（文档和接口）管理器</title>
+    <style type="text/css">
+      .dui-tips {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .dui-tips[data-tooltip]:after,
+      .dui-tips[data-tooltip]:before {
+        visibility: hidden;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transition: all .3s;
+      }
+
+      .dui-tips[data-tooltip]:after {
+
+        content: attr(data-tooltip);
+        transform: translate(-5px, -50%);
+        white-space: pre;
+        padding: 5px 10px;
+        background-color: rgba(0, 0, 0, 0);
+        color: rgba(255, 255, 255, 0);
+      }
+
+      .dui-tips[data-tooltip]:before {
+        content: '';
+        height: 0;
+        width: 0;
+        transform: translate(-10px, -50%);
+        border-width: 5px 5px 5px 0;
+        border-style: solid;
+        border-color: transparent rgba(0, 0, 0, 0) transparent transparent;
+      }
+      .dui-tips:hover:after,.dui-tips:hover:before {
+        transition: all .3s;
+        visibility: visible;
+
+      }
+      .dui-tips:hover:after {
+        color: rgba(255, 255, 255, 1);
+        background-color: rgba(0, 0, 0, 0.8);
+        transform: translate(5px, -50%);
+        z-index: 100;
+      }
+
+      .dui-tips:hover:before {
+        border-color: transparent rgba(0, 0, 0, 0.8) transparent transparent;
+        transform: translate(0px, -50%);
+      }
+
+    </style>
+  </head>
+  <body>
+    
+    <div id="app">
+      <section class="section">
+        <div class="container is-fluid">
+          <div class="content">
+            <h4 class="title">项目（文档和接口）管理器</h4>
+            <!--<p>If you're seeing this message, that means you haven't yet compiled your ClojureScript!</p>
+            <p>Please run <code>lein shadow watch app</code> to start the ClojureScript compiler and reload the page.</p>
+            <h4>For better ClojureScript development experience in Chrome follow these steps:</h4>
+            <ul>
+              <li>Open DevTools
+              <li>Go to Settings ("three dots" icon in the upper right corner of DevTools > Menu > Settings F1 > General > Console)
+              <li>Check-in "Enable custom formatters"
+              <li>Close DevTools
+              <li>Open DevTools
+            </ul>
+            <p>See <a href="http://www.luminusweb.net/docs/clojurescript.md">ClojureScript</a> documentation for further details.</p>-->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- scripts and styles -->
+    {% style "/assets/bulma/css/bulma.min.css" %}
+    {% style "/assets/material-icons/css/material-icons.min.css" %}
+    {% style "/css/screen.css" %}
+
+    <script type="text/javascript">
+        var csrfToken = "{{csrf-token}}";
+    </script>
+    {% script "/js/app.js" %}
+  </body>
+</html>
